@@ -14,47 +14,54 @@
   </p><br>
 
   <div>
-    <router-link to="/input/base">
-      <el-button type="primary">基础用法</el-button>
-    </router-link>
-    <router-link to="/input/disabled">
-      <el-button type="primary">禁用状态</el-button>
-    </router-link>
-    <router-link to="/input/clearable">
-      <el-button type="primary">可清空</el-button>
-    </router-link>
-    <router-link to="/input/password">
-      <el-button type="primary">密码框</el-button>
-    </router-link>
-    <router-link to="/input/base">
-      <el-button type="primary">带 icon 的输入框</el-button>
-    </router-link>
-    <router-link to="/input/text">
-      <el-button type="primary">文本域</el-button>
-    </router-link>
-    <router-link to="/input/autosize">
-      <el-button type="primary">可自适应文本亮度的文本域</el-button>
-    </router-link>
-    <router-link to="/input/slot">
-      <el-button type="primary">复合型输入框</el-button>
-    </router-link>
-    <router-link to="/input/size">
-      <el-button type="primary">尺寸</el-button>
-    </router-link>
-    <router-link to="/input/advise">
-      <el-button type="primary">带输入建议</el-button>
-    </router-link>
-    <router-link to="/input/scope">
-      <el-button type="primary">自定义模板</el-button>
-    </router-link>
-    <router-link to="/input/remote">
-      <el-button type="primary">远程搜索</el-button>
-    </router-link>
-    <router-link to="/input/limit">
-      <el-button type="primary">输入长度限制</el-button>
-    </router-link>
+    <div style="margin: 10px 10px 10px">
+      <router-link to="/input/base">
+        <el-button type="primary">基础用法</el-button>
+      </router-link>
+      <router-link to="/input/disabled">
+        <el-button type="primary">禁用状态</el-button>
+      </router-link>
+      <router-link to="/input/clearable">
+        <el-button type="primary">可清空</el-button>
+      </router-link>
+      <router-link to="/input/password">
+        <el-button type="primary">密码框</el-button>
+      </router-link>
+      <router-link to="/input/base">
+        <el-button type="primary">带 icon 的输入框</el-button>
+      </router-link>
 
-    <router-view></router-view>
+    </div>
+    <div style="margin: 10px 10px 10px">
+      <br>
+      <router-link to="/input/text">
+        <el-button type="primary">文本域</el-button>
+      </router-link>
+      <router-link to="/input/autosize">
+        <el-button type="primary">可自适应文本亮度的文本域</el-button>
+      </router-link>
+      <router-link to="/input/slot">
+        <el-button type="primary">复合型输入框</el-button>
+      </router-link>
+      <router-link to="/input/size">
+        <el-button type="primary">尺寸</el-button>
+      </router-link>
+      <router-link to="/input/advise">
+        <el-button type="primary">带输入建议</el-button>
+      </router-link>
+      <router-link to="/input/scope">
+        <el-button type="primary">自定义模板</el-button>
+      </router-link>
+      <router-link to="/input/remote">
+        <el-button type="primary">远程搜索</el-button>
+      </router-link>
+      <router-link to="/input/limit">
+        <el-button type="primary">输入长度限制</el-button>
+      </router-link>
+
+      <router-view></router-view>
+    </div>
+
   </div>
 
   <div id="Back">
@@ -75,6 +82,7 @@ p {
 }
 
 #Back {
+  margin: 30px 0px 30px;
   height: 100px;
 }
 </style>
