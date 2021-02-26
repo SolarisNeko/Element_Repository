@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        http-equiv顾名思义，相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助正确和精确地显示网页内容
+     -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Using templates with web components</title>
+
+    <template id="my-paragraph">
+        <style>
+            p {
+                color: white;
+                background-color: #666;
+                padding: 5px;
+            }
+        </style>
+        <p>My paragraph</p>
+    </template>
+
+    <script type="text/javascript">
+        /*
+        customElements 是Window对象上的一个只读属性，接口返回一个CustomElementRegistry 对象的引用，
+            可用于注册新的 custom elements，或者获取之前定义过的自定义元素的信息。
+        -----------------
+        这个属性最常用的例子是用来获取使用
+
+            window.customElements.define('my-custom-element', MyCustomElement)
+            // let customElementRegistry = window.customElements;
+
+         的方法,【定义和注册】自定义元素
+         */
+        // customElements.define('my-paragraph',
+        window.customElements.define('my-paragraph',
+            class extends HTMLElement {
+                constructor() {
+                    super();
+                    // 选择 template By Id
+                    let template = document.getElementById('my-paragraph');
+                    // 获取 template.内容
+                    let templateContent = template.content;
+
+                    /*
+                    核心:
+                        Element.attachShadow({options}) 方法给指定的元素挂载一个Shadow DOM，
+                        并且返回对 ShadowRoot 的引用。
+
+                        // attach  【挂靠】,系牢
+                        var shadowRoot = element.attachShadow(shadowRootInit);
+
+                     ------------------------------
+                     Shadow DOM API 的 ShadowRoot 接口
+                        是一个 DOM 子树的根节点, 它与文档的主DOM树分开渲染。
+                     -------------------------------
+                     Element.attachShadow() 方法
+                        给指定的元素挂载一个Shadow DOM，并且返回它的 ShadowRoot.
+                     --------------------------------
+                     this.attachShadow(..)
+                        是给 this（当前节点, 此处为 <my-paragraph>）挂靠一个 #shadow-root (open)
+
+                     mode: 一个指定Shadow DOM封装模式的字符串，可以是下列之一 :
+                        open - 指定为【开放的封装模式】。
+                        closed - 指定为【关闭的封装模式】。
+                     */
+                    const shadowRoot = this.attachShadow({mode: 'open'})
+                        .appendChild(templateContent.cloneNode(true));
+                    console.log(this)
+
+                    /*
+let newClone = node.cloneNode([deep])
+
+node
+要克隆的节点。
+
+newClone
+从克隆的新节点node。
+
+，该对象newClone没有父级，也不属于文档， 直到将其添加到属于文档一部分的另一个节点（使用 Node.appendChild()或类似方法）之前。
+
+deep [Optional]
+如果为true，则 还将复制node 它的整个子树（包括可能在子Text节点中的文本）。
+
+如果为false，node将仅克隆。node包含的任何文本也不会被克隆（因为文本被一个或多个子Text节点包含）。
+
+deep 对空元素（例如<img>和<input>元素）无效 。
+                     */
+                }
+            }
+        );
+    </script>
+</head>
+<body>
+
+<my-paragraph></my-paragraph>
+
+</body>
+</html>

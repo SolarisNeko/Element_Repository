@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--  避免中文乱码  -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Using templates with web components</title>
+
+    <template id="my-paragraph">
+        <style>
+            p {
+                color: white;
+                background-color: #666;
+                padding: 5px;
+            }
+        </style>
+        <p>My paragraph - 杨鹏博NB！</p>
+    </template>
+
+    <script type="text/javascript">
+        window.customElements.define('my-paragraph',
+            class extends HTMLElement {
+                constructor() {
+                    super();
+                    let template = document.getElementById('my-paragraph');
+                    let templateContent = template.content;
+
+                    const shadowRoot = this.attachShadow({mode: 'open'})
+                        .appendChild(templateContent.cloneNode(true));
+                }
+            }
+        );
+    </script>
+</head>
+<body>
+    <my-paragraph></my-paragraph>
+</body>
+</html>
