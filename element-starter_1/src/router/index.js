@@ -55,6 +55,18 @@ import checkbox_button from '../views/checkbox/checkbox-button'
 import checkbox_border from '../views/checkbox/checkbox-border'
 // input 输入框
 import input from '../views/input/index-input'
+import input_base from '../views/input/input-base'
+import input_disabled from '../views/input/input-disabled'
+import input_clearable from '../views/input/input-clearable'
+import input_password from '../views/input/input-password'
+import input_icon from '../views/input/input-icon'
+import input_textarea from '../views/input/input_type-textarea'
+import input_slot from '../views/input/input-slot'
+import input_size from '../views/input/input-size'
+import autocomplete_fetch_suggestions from '../views/input/autocomplete_fetch-suggestions'
+import template_slot_scope from '../views/input/template_slot_scope'
+import input_remote from '../views/input/input-remote'
+import input_maxlength from '../views/input/input-maxlength'
 
 export default new VueRouter({
     routes: [
@@ -124,9 +136,7 @@ export default new VueRouter({
         {
             path: '/icon',
             component: icon,
-            children: [
-
-            ]
+            children: []
         },
         // Button
         {
@@ -253,6 +263,54 @@ export default new VueRouter({
             path: '/input',
             component: input,
             children: [
+                {
+                    path: '/input/base',
+                    component: input_base,
+                },
+                {
+                    path: '/input/disabled',
+                    component: input_disabled,
+                },
+                {
+                    path: '/input/clearable',
+                    component: input_clearable,
+                },
+                {
+                    path: '/input/password',
+                    component: input_password,
+                },
+                {
+                    path: '/input/icon',
+                    component: input_icon,
+                },
+                {
+                    path: '/input/textarea',
+                    component: input_textarea,
+                },
+                {
+                    path: '/input/slot',
+                    component: input_slot,
+                },
+                {
+                    path: '/input/size',
+                    component: input_size,
+                },
+                {
+                    path: '/input/autocomplete_fetch_suggestions',
+                    component: autocomplete_fetch_suggestions,
+                },
+                {
+                    path: '/input/template_slot_scope',
+                    component: template_slot_scope,
+                },
+                {
+                    path: '/input/remote',
+                    component: input_remote,
+                },
+                {
+                    path: '/input/maxlength',
+                    component: input_maxlength,
+                },
 
             ]
         }

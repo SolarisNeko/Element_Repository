@@ -1,58 +1,57 @@
 <template>
-  <hr>
-  <h2>
-    {{ title }} <br>
-    {{ description }} <br>
-    {{ use }}
-  </h2>
-
   <div>
-    <el-autocomplete v-model="state"
-                     :fetch-suggestions="querySearch"
-                     class="inline-input"
-                     placeholder="请输入内容"
-                     @select="handleSelect">
-      <i slot="suffix"
-         class="el-icon-edit el-input__icon"
-         @click="handleIconClick"
-      ></i>
-      <!--   slot-scope 映射的是 :fetch-suggestion返回值   -->
-      <template slot-scope="{ item }">
-        <div class="name">{{ item.value }}</div>
-        <div class="addr">{{ item.address }}</div>
-      </template>
-    </el-autocomplete>
+    <hr>
+    <h2>
+      {{ title }} <br>
+    </h2>
+    <p> {{ description }} </p>
+    <p> {{ use }}</p>
+
+    <div>
+      <el-autocomplete
+          popper-class="my-autocomplete"
+          v-model="state"
+          :fetch-suggestions="querySearch"
+          placeholder="请输入内容"
+          @select="handleSelect">
+        <i
+            class="el-icon-edit el-input__icon"
+            slot="suffix"
+            @click="handleIconClick">
+        </i>
+        <template slot-scope="{ item }">
+          <div class="name">{{ item.value }}</div>
+          <span class="addr">{{ item.address }}</span>
+        </template>
+      </el-autocomplete>
+
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "autocomplete-diy",
   data() {
     return {
-      title: '自定义模板',
-      description: '可自定义输入建议的显示',
-      use: '使用 template slot-scope 自定义【输入建议的模板】。该 scope="item"，表示当前输入【建议对象】。',
+      title: '自定义模板 \<autocomplete\>',
+      description: '可自定义输入建议的显示(内容)',
+      use: '使用 scoped slot 自定义输入建议的模板。该 scope 的参数为 item，表示当前输入建议对象。',
 
       restaurants: [],
       state: ''
     };
   },
-  mounted() {
-    this.restaurants = this.loadAll()
-  },
   methods: {
-    querySearch(queryString, callback) {
+    querySearch(queryString, cb) {
       let restaurants = this.restaurants;
       let results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
-      // 调用 callback 返回 建议列表的数据
-      callback(results)
+      // 调用 callback 返回建议列表的数据
+      cb(results);
     },
     createFilter(queryString) {
-      // return boolean
       return (restaurant) => {
-        return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0)
-      }
+        return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+      };
     },
     loadAll() {
       return [
@@ -109,9 +108,12 @@ export default {
     handleSelect(item) {
       console.log(item);
     },
-    handleIconClick(event) {
-      console.log(event);
+    handleIconClick(ev) {
+      console.log(ev);
     }
+  },
+  mounted() {
+    this.restaurants = this.loadAll();
   }
 }
 </script>
@@ -121,23 +123,27 @@ h2 {
   color: aqua;
 }
 
-.my-autocomplete {
-  li {
-    line-height: normal;
-    padding: 7px;
+li {
+  line-height: normal;
+  padding: 7px;
+}
 
-    .name {
-      text-overflow: ellipsis;
-      overflow: hidden;
-    }
-    .addr {
-      font-size: 12px;
-      color: #b4b4b4;
-    }
+.name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 
-    .highlighted .addr {
-      color: #ddd;
-    }
-  }
+.addr {
+  font-size: 12px;
+  color: #b4b4b4;
+}
+
+.highlighted .addr {
+  color: #ddd;
+}
+
+p {
+  font-size: 18px;
+  color: #fad6a1;
 }
 </style>

@@ -10,7 +10,9 @@
       <el-row :gutter="10" class="demo-autocomplete">
         <!--  span  n. 全长,持续时间 |     -->
         <el-col :span="12">
-          <div class="sub-title">激活, 即列出建议</div>
+          <div class="sub-title">
+            <p>激活, 即列出建议</p>
+          </div>
           <el-autocomplete
               v-model="state1"
               :fetch-suggestions="querySearch"
@@ -21,8 +23,8 @@
         </el-col>
         <el-col :span="12">
           <div class="sub-title">
-            输入后, 才匹配输入建议 <br>
-            :trigger-on-focus="false" 触发在聚焦时="关闭" <br>
+            <p>输入后, 才匹配输入建议 </p>
+            <p> :trigger-on-focus="false" -- 触发于focus="关闭" </p>
           </div>
           <!--    @select 当选择时, invoke     -->
           <el-autocomplete v-model="state2"
@@ -130,7 +132,12 @@ export default {
 </script>
 
 <style scoped>
-h2  {
+h2 {
   color: aqua;
+}
+
+p {
+  font-size: 24px;
+  color: #fcdea6;
 }
 </style>

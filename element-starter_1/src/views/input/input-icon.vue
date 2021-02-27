@@ -44,7 +44,7 @@
 
 <script>
 export default {
-  name: "input__icon",
+  name: "input-icon",
   data: () => {
     return {
       title: '带 icon 的输入框',

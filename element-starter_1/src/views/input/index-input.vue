@@ -4,7 +4,7 @@
   <br>
   <h2>
     Input 输入框 <br>
-    - 通过鼠标/键盘, 输入字符
+    -- 通过鼠标/键盘, 输入字符 <br>
   </h2>
   <p>
     Input 为受控组件，它总会显示 Vue 绑定值。<br>
@@ -27,18 +27,15 @@
       <router-link to="/input/password">
         <el-button type="primary">密码框</el-button>
       </router-link>
-      <router-link to="/input/base">
+      <router-link to="/input/icon">
         <el-button type="primary">带 icon 的输入框</el-button>
       </router-link>
 
     </div>
     <div style="margin: 10px 10px 10px">
       <br>
-      <router-link to="/input/text">
-        <el-button type="primary">文本域</el-button>
-      </router-link>
-      <router-link to="/input/autosize">
-        <el-button type="primary">可自适应文本亮度的文本域</el-button>
+      <router-link to="/input/textarea">
+        <el-button type="primary">[自动高度]文本域</el-button>
       </router-link>
       <router-link to="/input/slot">
         <el-button type="primary">复合型输入框</el-button>
@@ -46,16 +43,16 @@
       <router-link to="/input/size">
         <el-button type="primary">尺寸</el-button>
       </router-link>
-      <router-link to="/input/advise">
+      <router-link to="/input/autocomplete_fetch_suggestions">
         <el-button type="primary">带输入建议</el-button>
       </router-link>
-      <router-link to="/input/scope">
-        <el-button type="primary">自定义模板</el-button>
+      <router-link to="/input/template_slot_scope">
+        <el-button type="primary">自定义input模板</el-button>
       </router-link>
       <router-link to="/input/remote">
         <el-button type="primary">远程搜索</el-button>
       </router-link>
-      <router-link to="/input/limit">
+      <router-link to="/input/maxlength">
         <el-button type="primary">输入长度限制</el-button>
       </router-link>
 
