@@ -17,32 +17,32 @@
     </h2>
     <div style="margin: 30px 0px 30px 30px">
       <router-link to="/animation">
-        <el-button type="primary">动画</el-button>
+        <el-button type="primary">Animation 动画 | transition</el-button>
       </router-link>
     </div>
     <div style="margin: 30px 0px 30px 30px">
       <router-link to="/layout">
-        <el-button type="primary">Layout 布局</el-button>
+        <el-button type="primary">Layout 布局 | row>col</el-button>
       </router-link>
     </div>
     <div style="margin: 30px 0px 30px 30px">
       <router-link to="/container">
-        <el-button type="primary">Container 布局容器</el-button>
+        <el-button type="primary">Container 布局容器 | container>header+main+footer</el-button>
       </router-link>
     </div>
     <div style="margin: 30px 0px 30px 30px">
       <router-link to="/icon">
-        <el-button type="primary">Icon 图标</el-button>
+        <el-button type="primary">Icon 图标 | 属性 icon="el-icon-*"</el-button>
       </router-link>
     </div>
     <div style="margin: 30px 0px 30px 30px">
       <router-link to="/button">
-        <el-button type="primary">Button 按钮</el-button>
+        <el-button type="primary">Button 按钮 | el-button</el-button>
       </router-link>
     </div>
     <div style="margin: 30px 0px 30px 30px; height: 100px">
       <router-link to="/link">
-        <el-button type="primary">Link 文字链接</el-button>
+        <el-button type="primary">Link 文字链接 | el-link href=".."</el-button>
       </router-link>
     </div>
 
@@ -53,23 +53,39 @@
     </h2>
     <div style="margin: 0px 0px 10px 30px; height: 50px">
       <router-link to="/radio">
-        <el-button type="primary">Radio 单选框</el-button>
+        <el-button type="primary">Radio 单选框 | el-radio(v-model绑定label)</el-button>
       </router-link>
     </div>
     <div style="margin: 0px 0px 10px 30px; height: 50px">
       <router-link to="/checkbox">
-        <el-button type="primary">Checkbox 多选框</el-button>
+        <el-button type="primary">Checkbox 多选框 | el-checkbox(v-model绑定checked)</el-button>
       </router-link>
     </div>
     <div style="margin: 0px 0px 10px 30px; height: 50px">
       <router-link to="/input">
-        <el-button type="primary">Input 输入框</el-button>
+        <el-button type="primary">Input 输入框 | el-input / autocomplete</el-button>
+      </router-link>
+    </div>
+    <div style="margin: 0px 0px 10px 30px; height: 50px">
+      <router-link to="/input_number">
+        <el-button type="primary">InputNumber 计数器 | el-input-number</el-button>
+      </router-link>
+    </div>
+    <div style="margin: 0px 0px 10px 30px; height: 50px">
+      <router-link to="/select">
+        <el-button type="primary">Select 选择器(下拉菜单) | el-select</el-button>
+      </router-link>
+    </div>
+    <div style="margin: 0px 0px 10px 30px; height: 50px">
+      <router-link to="/cascader">
+        <el-button type="primary">Cascader 级联选择器 | el-cascader</el-button>
       </router-link>
     </div>
 
+
     <!--    <hr>-->
     <!--  vue-router 显示的地方    -->
-    <div>
+    <div style="margin-top: 30px">
       <router-view></router-view>
     </div>
     <div id="MenuButton">
@@ -84,8 +100,8 @@
 </template>
 
 <script>
-import transition from "./views/animation/fade-in";
-import zoom from './views/animation/zoom'
+import transition from "./views/BuiltIn/animation/fade-in";
+import zoom from './views/BuiltIn/animation/zoom'
 
 
 export default {
@@ -139,5 +155,10 @@ h2 {
 #MenuButton {
   margin: 30px 0px 30px;
   height: 80px;
+}
+
+#Back {
+  margin: 50px 0px 10px;
+  height: 50px;
 }
 </style>

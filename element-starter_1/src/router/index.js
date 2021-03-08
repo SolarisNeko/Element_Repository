@@ -5,68 +5,93 @@ Vue.use(VueRouter)
 
 
 // 动画
-import animation from '../views/animation/animation-index'
-import fade from "../views/animation/fade-in";
-import zoom from '../views/animation/zoom'
-import collapse from '../views/animation/collapse'
+import animation from '../views/BuiltIn/animation/animation-index'
+import fade from "../views/BuiltIn/animation/fade-in";
+import zoom from '../views/BuiltIn/animation/zoom'
+import collapse from '../views/BuiltIn/animation/collapse'
 // 布局
-import layout from '../views/layout/layout-index'
-import base_layout from '../views/layout/base_layout'
-import gutter_layout from '../views/layout/gutter_layout'
-import mix_layout from '../views/layout/mix_layout'
-import offset_layout from '../views/layout/offset_layout'
-import reactive_layout from '../views/layout/reactive_layout'
+import layout from '../views/Basic/layout/layout-index'
+import base_layout from '../views/Basic/layout/base_layout'
+import gutter_layout from '../views/Basic/layout/gutter_layout'
+import mix_layout from '../views/Basic/layout/mix_layout'
+import offset_layout from '../views/Basic/layout/offset_layout'
+import reactive_layout from '../views/Basic/layout/reactive_layout'
 // 布局容器
-import container from '../views/container/container-index'
-import base_container from '../views/container/base-container'
-import container_demo from '../views/container/container-demo'
+import container from '../views/Basic/container/container-index'
+import base_container from '../views/Basic/container/base-container'
+import container_demo from '../views/Basic/container/container-demo'
 // 图标
-import icon from '../views/icon/icon-index'
+import icon from '../views/Basic/icon/icon-index'
 // Button
-import button from '../views/button/button-index'
-import base_button from '../views/button/base-button'
-import disabled_button from "../views/button/disabled_button";
-import text_button from "../views/button/text-button";
-import icon_button from "../views/button/icon-button";
-import button_group from "../views/button/button-group";
-import loading_button from "../views/button/loading-button";
-import size_button from "../views/button/size-button";
+import button from '../views/Basic/button/button-index'
+import base_button from '../views/Basic/button/base-button'
+import disabled_button from "../views/Basic/button/disabled_button";
+import text_button from "../views/Basic/button/text-button";
+import icon_button from "../views/Basic/button/icon-button";
+import button_group from "../views/Basic/button/button-group";
+import loading_button from "../views/Basic/button/loading-button";
+import size_button from "../views/Basic/button/size-button";
 // Link 文字链接
-import link from '../views/link/link-index'
-import base_link from '../views/link/base-link'
-import disabled_link from '../views/link/disabled-link'
-import underline_link from '../views/link/underline-link'
-import icon_link from '../views/link/icon-link'
+import link from '../views/Basic/link/link-index'
+import base_link from '../views/Basic/link/base-link'
+import disabled_link from '../views/Basic/link/disabled-link'
+import underline_link from '../views/Basic/link/underline-link'
+import icon_link from '../views/Basic/link/icon-link'
 // Radio 单选框
-import radio from '../views/radio/radio-index'
-import radio_base from '../views/radio/radio-base'
-import radio_disabled from '../views/radio/radio-disabled'
-import radio_group from '../views/radio/radio-group'
-import radio_style from '../views/radio/radio-style'
-import radio_border from '../views/radio/radio-border'
+import radio from '../views/Form/radio/radio-index'
+import radio_base from '../views/Form/radio/radio-base'
+import radio_disabled from '../views/Form/radio/radio-disabled'
+import radio_group from '../views/Form/radio/radio-group'
+import radio_style from '../views/Form/radio/radio-style'
+import radio_border from '../views/Form/radio/radio-border'
 // Checkbox 多选框
-import checkbox from '../views/checkbox/index-checkbox'
-import checkbox_base from '../views/checkbox/checkbox-base'
-import checkbox_disabled from '../views/checkbox/checkbox-disabled'
-import checkbox_group from '../views/checkbox/checkbox-group'
-import checkbox_indeterminate from '../views/checkbox/checkbox-indeterminate'
-import checkbox_size from '../views/checkbox/checkbox-size'
-import checkbox_button from '../views/checkbox/checkbox-button'
-import checkbox_border from '../views/checkbox/checkbox-border'
+import checkbox from '../views/Form/checkbox/index-checkbox'
+import checkbox_base from '../views/Form/checkbox/checkbox-base'
+import checkbox_disabled from '../views/Form/checkbox/checkbox-disabled'
+import checkbox_group from '../views/Form/checkbox/checkbox-group'
+import checkbox_indeterminate from '../views/Form/checkbox/checkbox-indeterminate'
+import checkbox_size from '../views/Form/checkbox/checkbox-size'
+import checkbox_button from '../views/Form/checkbox/checkbox-button'
+import checkbox_border from '../views/Form/checkbox/checkbox-border'
 // input 输入框
-import input from '../views/input/index-input'
-import input_base from '../views/input/input-base'
-import input_disabled from '../views/input/input-disabled'
-import input_clearable from '../views/input/input-clearable'
-import input_password from '../views/input/input-password'
-import input_icon from '../views/input/input-icon'
-import input_textarea from '../views/input/input_type-textarea'
-import input_slot from '../views/input/input-slot'
-import input_size from '../views/input/input-size'
-import autocomplete_fetch_suggestions from '../views/input/autocomplete_fetch-suggestions'
-import template_slot_scope from '../views/input/template_slot_scope'
-import input_remote from '../views/input/input-remote'
-import input_maxlength from '../views/input/input-maxlength'
+import input from '../views/Form/input/index-input'
+import input_base from '../views/Form/input/input-base'
+import input_disabled from '../views/Form/input/input-disabled'
+import input_clearable from '../views/Form/input/input-clearable'
+import input_password from '../views/Form/input/input-password'
+import input_icon from '../views/Form/input/input-icon'
+import input_textarea from '../views/Form/input/input_type-textarea'
+import input_slot from '../views/Form/input/input-slot'
+import input_size from '../views/Form/input/input-size'
+import autocomplete_fetch_suggestions from '../views/Form/input/autocomplete_fetch-suggestions'
+import template_slot_scope from '../views/Form/input/template_slot_scope'
+import input_remote from '../views/Form/input/input-remote'
+import input_maxlength from '../views/Form/input/input-maxlength'
+// input-number 计数器
+import input_number from '../views/Form/input-number/index_input-number'
+import input_number_base from '../views/Form/input-number/input-number_base'
+import input_number_disabled from '../views/Form/input-number/input-number_disabled'
+import input_number_step from '../views/Form/input-number/input-number_step'
+import input_number_step_strictly from '../views/Form/input-number/input-number_step-strictly'
+import input_number_precision from '../views/Form/input-number/input-number_precision'
+import input_number_size from '../views/Form/input-number/input-number_size'
+import input_number_controls_position from '../views/Form/input-number/input-number_controls-position'
+// Select
+import index_select from '../views/Form/select/index_select'
+import select_base from '../views/Form/select/select_base'
+import select_option_disabled from '../views/Form/select/select_option_disabled'
+import select_disabled from '../views/Form/select/select_disabled'
+import select_clearable from '../views/Form/select/select_clearable'
+import select_multiple from '../views/Form/select/select_multiple'
+import select_slot from '../views/Form/select/select_slot'
+import select_option_group from '../views/Form/select/select_option-group'
+import select_filterable from '../views/Form/select/select_filterable'
+import select_remote_method from '../views/Form/select/select_remote-method'
+import select_allow_create from '../views/Form/select/select_allow-create'
+// Cascader
+import index_cascader from '../views/Form/cascader/index_cascader'
+import cascader_base from '../views/Form/cascader/cascader_base'
+
 
 export default new VueRouter({
     routes: [
@@ -312,6 +337,102 @@ export default new VueRouter({
                     component: input_maxlength,
                 },
 
+            ]
+        },
+        {
+            path: '/input_number',
+            component: input_number,
+            children: [
+                {
+                    path: '/input_number/base',
+                    component: input_number_base
+                },
+                {
+                    path: '/input_number/disabled',
+                    component: input_number_disabled
+                },
+                {
+                    path: '/input_number/step',
+                    component: input_number_step
+                },
+                {
+                    path: '/input_number/step_strictly',
+                    component: input_number_step_strictly
+                },
+                {
+                    path: '/input_number/precision',
+                    component: input_number_precision
+                },
+                {
+                    path: '/input_number/size',
+                    component: input_number_size
+                },
+                {
+                    path: '/input_number/controls_position',
+                    component: input_number_controls_position
+                },
+            ]
+        },
+        // Select 下拉菜单
+        {
+            path: '/select',
+            component: index_select,
+            children: [
+                {
+                    path: '/select/base',
+                    component: select_base
+                },
+                {
+                    path: '/select/option_disabled',
+                    component: select_option_disabled
+                },
+                {
+                    path: '/select/select_disabled',
+                    component: select_disabled
+                },
+                {
+                    path: '/select/option_disabled',
+                    component: select_option_disabled
+                },
+                {
+                    path: '/select/clearable',
+                    component: select_clearable
+                },
+                {
+                    path: '/select/multiple',
+                    component: select_multiple
+                },
+                {
+                    path: '/select/slot',
+                    component: select_slot
+                },
+                {
+                    path: '/select/option_group',
+                    component: select_option_group
+                },
+                {
+                    path: '/select/filterable',
+                    component: select_filterable
+                },
+                {
+                    path: '/select/remote_method',
+                    component: select_remote_method
+                },
+                {
+                    path: '/select/allow_create',
+                    component: select_allow_create
+                },
+            ]
+        },
+        // Cascader 级联选择器
+        {
+            path: '/cascader',
+            component: index_cascader,
+            children: [
+                {
+                    path: '/cascader/base',
+                    component: cascader_base
+                }
             ]
         }
 
