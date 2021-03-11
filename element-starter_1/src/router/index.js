@@ -96,6 +96,8 @@ import cascader_show_all_levels from '../views/Form/cascader/cascader_show-all-l
 import cascader_multiple from '../views/Form/cascader/cascader_multiple'
 import cascader_checkStrictly from '../views/Form/cascader/cascader_checkStrictly'
 import cascader_lazyload from '../views/Form/cascader/cascader_lazyload'
+import cascader_panel from '../views/Form/cascader/cascader-panel'
+import cascader_filterable from "~/views/Form/cascader/cascader_filterable";
 
 
 export default new VueRouter({
@@ -437,7 +439,37 @@ export default new VueRouter({
                 {
                     path: '/cascader/base',
                     component: cascader_base
-                }
+                },
+                {
+                    path: '/cascader/disabled',
+                    component: cascader_disabled
+                },
+                {
+                    path: '/cascader/multiple',
+                    component: cascader_multiple
+                },
+                {
+                    path: '/cascader/show_all_levels',
+                    component: cascader_show_all_levels
+                },
+                {
+                    path: '/cascader/checkStrictly',
+                    component: cascader_checkStrictly
+                },
+                {
+                    path: '/cascader/lazyload',
+                    component: cascader_lazyload
+                },
+                {
+                    path: '/cascader/filterable',
+                    component: cascader_filterable
+                },
+                {
+                    path: '/cascader/cascader_panel',
+                    component: cascader_panel
+                },
+
+
             ]
         }
 
