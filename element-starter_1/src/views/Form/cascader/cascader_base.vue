@@ -40,7 +40,7 @@
 
 <script>
 export default {
-  name: "index_cascader",
+  name: "cascader_base",
   data: () => {
     return {
       title: '基础用法',

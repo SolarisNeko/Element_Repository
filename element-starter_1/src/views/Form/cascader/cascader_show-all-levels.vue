@@ -5,17 +5,15 @@
       <h1>{{ title }}</h1>
       <h2>{{ description }}</h2>
       <p>
-        本例中，options指定的数组中的第一个元素含有disabled: true键值对，因此是禁用的。<br>
-        在默认情况下，Cascader 会检查【数据中每一项的disabled字段是否为true】，<br>
-        如果你的数据中表示【禁用含义的字段名】不为【disabled】，可以通过【props.disabled】属性来指定（详见下方 API 表格）。<br>
-        当然，value、label、children 这三个字段名, 也可以通过【同样的方式】指定。
+        属性 show-all-levels 定义了是否显示完整的路径，将其赋值为 false 则仅显示最后一级。
       </p>
     </div>
 
     <div>
       <el-cascader
-          v-model="choose"
           :options="options"
+          v-model="choose"
+          :show-all-levels="false"
           @change="handleChange"></el-cascader>
     </div>
   </div>
@@ -23,11 +21,11 @@
 
 <script>
 export default {
-  name: "cascader_disabled",
+  name: "cascader_show-all-levels",
   data: () => {
     return {
-      title: '禁用选项',
-      description: '通过在属性中设置 disabled="true" , 来声明该选项是【禁用的】',
+      title: '仅显示最后一级',
+      description: '可以仅在输入框中, 显示【选中项最后一级】的标签，而不是选中项所在的完整路径。',
 
       choose: [],
 

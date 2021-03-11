@@ -5,29 +5,44 @@
       <h1>{{ title }}</h1>
       <h2>{{ description }}</h2>
       <p>
-        本例中，options指定的数组中的第一个元素含有disabled: true键值对，因此是禁用的。<br>
-        在默认情况下，Cascader 会检查【数据中每一项的disabled字段是否为true】，<br>
-        如果你的数据中表示【禁用含义的字段名】不为【disabled】，可以通过【props.disabled】属性来指定（详见下方 API 表格）。<br>
-        当然，value、label、children 这三个字段名, 也可以通过【同样的方式】指定。
+        可通过 props.checkStrictly = true 来设置【取消选父子节点中の关联】，从而达到【选择任意一级选项】的目的。
       </p>
     </div>
 
     <div>
-      <el-cascader
-          v-model="choose"
-          :options="options"
-          @change="handleChange"></el-cascader>
+      <div class="block">
+        <span class="demostration">单选, 选择任意一级选项</span>
+        <el-cascader
+            v-model="choose"
+            :options="options"
+            :props="{ checkStrictly: true }"
+            clearable
+            @change="handleChange">
+
+        </el-cascader>
+      </div>
+      <div class="block">
+        <span class="demostration">多选, 选择任意一级选项</span>
+        <el-cascader
+            v-model="choose"
+            :options="options"
+            :props="{ multiple: true, checkStrictly: true }"
+            clearable="true"
+            @change="handleChange"></el-cascader>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "cascader_disabled",
+  name: "cascader_checkStrictly",
   data: () => {
     return {
-      title: '禁用选项',
-      description: '通过在属性中设置 disabled="true" , 来声明该选项是【禁用的】',
+      title: '选择任意一级选项',
+      description:
+          `在单选模式下，你只能选择叶子节点；而在多选模式下，勾选【父节点】真正选中的都是【叶子节点】。
+            <br>启用该功能后，可让父子节点取消关联，选择任意一级选项。`,
 
       choose: [],
 

@@ -26,8 +26,8 @@ export default {
   name: "cascader_disabled",
   data: () => {
     return {
-      title: '禁用选项',
-      description: '通过在属性中设置 disabled="true" , 来声明该选项是【禁用的】',
+      title: '多选',
+      description: '可通过 props.multiple = true 来开启多选模式',
 
       choose: [],
 

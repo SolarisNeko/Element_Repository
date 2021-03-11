@@ -5,29 +5,23 @@
       <h1>{{ title }}</h1>
       <h2>{{ description }}</h2>
       <p>
-        本例中，options指定的数组中的第一个元素含有disabled: true键值对，因此是禁用的。<br>
-        在默认情况下，Cascader 会检查【数据中每一项的disabled字段是否为true】，<br>
-        如果你的数据中表示【禁用含义的字段名】不为【disabled】，可以通过【props.disabled】属性来指定（详见下方 API 表格）。<br>
-        当然，value、label、children 这三个字段名, 也可以通过【同样的方式】指定。
+        和级联选择器一样，通过options来指定选项。<br>
+        也可通过props来设置多选、动态加载等功能，具体详情见下方API表格。
       </p>
     </div>
 
     <div>
-      <el-cascader
-          v-model="choose"
-          :options="options"
-          @change="handleChange"></el-cascader>
+      <el-cascader-panel :options="options"></el-cascader-panel>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "cascader_disabled",
   data: () => {
     return {
-      title: '禁用选项',
-      description: '通过在属性中设置 disabled="true" , 来声明该选项是【禁用的】',
+      title: '级联面板',
+      description: '级联面板是级联选择器的核心组件，与级联选择器一样，有单选、多选、动态加载等多种功能。',
 
       choose: [],
 

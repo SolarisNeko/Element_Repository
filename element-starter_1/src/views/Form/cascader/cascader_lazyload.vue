@@ -5,32 +5,49 @@
       <h1>{{ title }}</h1>
       <h2>{{ description }}</h2>
       <p>
-        本例中，options指定的数组中的第一个元素含有disabled: true键值对，因此是禁用的。<br>
-        在默认情况下，Cascader 会检查【数据中每一项的disabled字段是否为true】，<br>
-        如果你的数据中表示【禁用含义的字段名】不为【disabled】，可以通过【props.disabled】属性来指定（详见下方 API 表格）。<br>
-        当然，value、label、children 这三个字段名, 也可以通过【同样的方式】指定。
+        通过lazy开启动态加载，并通过 lazyload 来设置【加载数据源的方法】。<br>
+        lazyload方法,有【2个参数】，第一个参数 node 为【当前点击的节点】，第二个 resolve 为【数据加载完成的回调】(必须调用)。<br>
+        为了更准确的显示节点的状态，还可以对【节点数据】添加【是否为叶子节点的标志位】 (默认字段为 leaf，可通过 props.leaf 修改)，否则会简单的以【有无子节点】来判断【是否为叶子节点】。
       </p>
     </div>
 
     <div>
       <el-cascader
-          v-model="choose"
-          :options="options"
-          @change="handleChange"></el-cascader>
+          :props="props">
+      </el-cascader>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "cascader_disabled",
+  name: "cascader_checkStrictly",
   data: () => {
     return {
-      title: '禁用选项',
-      description: '通过在属性中设置 disabled="true" , 来声明该选项是【禁用的】',
+      title: '动态加载',
+      description:
+          `当选中某一级时，动态加载【该级下的选项】。`,
+
+      props: {
+        lazy: true,
+        lazyLoad(node, resolve) { // resolve v. 解决
+          const {level} = node;
+          setTimeout(() => {
+            // Array.from() - 从类数组对象或者可迭代对象中创建一个新的数组实例。
+            const nodes = Array.from({length: level + 1})
+                .map(item => ({
+                  value: ++id,
+                  label: `选项${id}`,
+                  leaf: level >= 2, // 判断是否 >= 2, 显示
+                }));
+
+            // callback - 通过 调用 resolve 将【子节点数据】返回, 通知【组件数据】加载完成。
+            resolve(nodes);
+          }, 1000);
+        }
+      },
 
       choose: [],
-
       options: [{
         value: 'zhinan',
         label: '指南',

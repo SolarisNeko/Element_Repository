@@ -91,6 +91,11 @@ import select_allow_create from '../views/Form/select/select_allow-create'
 // Cascader
 import index_cascader from '../views/Form/cascader/index_cascader'
 import cascader_base from '../views/Form/cascader/cascader_base'
+import cascader_disabled from '../views/Form/cascader/cascader_disabled'
+import cascader_show_all_levels from '../views/Form/cascader/cascader_show-all-levels'
+import cascader_multiple from '../views/Form/cascader/cascader_multiple'
+import cascader_checkStrictly from '../views/Form/cascader/cascader_checkStrictly'
+import cascader_lazyload from '../views/Form/cascader/cascader_lazyload'
 
 
 export default new VueRouter({

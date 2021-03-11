@@ -5,32 +5,65 @@
       <h1>{{ title }}</h1>
       <h2>{{ description }}</h2>
       <p>
-        本例中，options指定的数组中的第一个元素含有disabled: true键值对，因此是禁用的。<br>
-        在默认情况下，Cascader 会检查【数据中每一项的disabled字段是否为true】，<br>
-        如果你的数据中表示【禁用含义的字段名】不为【disabled】，可以通过【props.disabled】属性来指定（详见下方 API 表格）。<br>
-        当然，value、label、children 这三个字段名, 也可以通过【同样的方式】指定。
+        将 filterable 赋值为 true 即可打开搜索功能，默认会匹配节点的 label 或 所有父节点的label(由show-all-levels决定)中包含输入值的选项。<br>
+        你也可以用 filter-method 自定义 搜索逻辑，接受一个函数，<br>
+        第1个参数是 节点node，<br>
+        第2个参数是 搜索关键词keyword，通过[返回布尔值]表示[是否命中]。
       </p>
     </div>
 
     <div>
-      <el-cascader
-          v-model="choose"
-          :options="options"
-          @change="handleChange"></el-cascader>
+      <div class="block">
+        <span class="demostration">单选,可搜索</span>
+        <el-cascader
+            v-model="choose"
+            :options="options"
+            filterable="true"
+            placeholder="试试搜索: 指南"
+            @change="handleChange"></el-cascader>
+      </div>
+      <div class="block">
+        <span class="demostration">多选,可搜索</span>
+        <el-cascader
+            v-model="choose"
+            :options="options"
+            :props=" { multiple: true }"
+            placeholder="试试搜索: 指南"
+            @change="handleChange"></el-cascader>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "cascader_disabled",
+  name: "cascader_filterable",
   data: () => {
     return {
-      title: '禁用选项',
-      description: '通过在属性中设置 disabled="true" , 来声明该选项是【禁用的】',
+      title: '可搜索',
+      description:
+          `可以快捷地搜索选项, 并选择。`,
+
+      props: {
+        lazy: true,
+        lazyLoad(node, resolve) { // resolve v. 解决
+          const {level} = node;
+          setTimeout(() => {
+            // Array.from() - 从类数组对象或者可迭代对象中创建一个新的数组实例。
+            const nodes = Array.from({length: level + 1})
+                .map(item => ({
+                  value: ++id,
+                  label: `选项${id}`,
+                  leaf: level >= 2, // 判断是否 >= 2, 显示
+                }));
+
+            // callback - 通过 调用 resolve 将【子节点数据】返回, 通知【组件数据】加载完成。
+            resolve(nodes);
+          }, 1000);
+        }
+      },
 
       choose: [],
-
       options: [{
         value: 'zhinan',
         label: '指南',
